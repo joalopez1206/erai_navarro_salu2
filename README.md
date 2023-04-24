@@ -18,6 +18,6 @@ void inversa_permutacion(int* l1, int N, int* out);
 
 for 1 ... N:
 
-  a_i = pi[i]:
+>a_i = pi[i]:
   
-  pi_menosunos[a_i] = i;
+>>pi_menosunos[a_i] = i;
