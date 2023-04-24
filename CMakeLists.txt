@@ -3,4 +3,4 @@ project(Tarea1log C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Tarea1log main.c)
+add_executable(Tarea1log src/main.c)
