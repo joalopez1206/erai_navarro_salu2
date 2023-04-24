@@ -20,4 +20,4 @@ for 1 ... N:
 
 >a_i = pi[i]:
   
->>pi_menosunos[a_i] = i;
+>pi_menosunos[a_i] = i;
