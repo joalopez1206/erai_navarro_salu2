@@ -7,7 +7,7 @@ __Firmas de las funciones__
 //
 void merge(int *l1, int *l2, int N, int* out);
 //
-void mergesort(int *l1, int* l2, int N);
+void mergesort(int *l1, int N);
 //
 void inversa_permutacion(int* l1, int N, int* out);
 //
