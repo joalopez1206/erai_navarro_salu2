@@ -4,8 +4,8 @@
 
 void print_lst(int *l, int n){
     printf("[");
-    for(int i = 0; i <n; i++){
-        printf("%d ",l[i]);
+    for(int i = 0; i <n-1; i++){
+        printf("%d, ",l[i]);
     }
-    printf("]\n");
+    printf("%d]\n", l[n-1]);
 }
