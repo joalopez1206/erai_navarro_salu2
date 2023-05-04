@@ -4,8 +4,12 @@
 #include "merge_sort.h"
 
 
-void my_merge(const int *l1, const int *l2, size_t l1_len, size_t l2_len, int* out) {
+void my_merge(int *l1, int *l2, size_t l1_len, size_t l2_len, int* out) {
     //nothin
+}
+
+void mergesort(int *l, int N){
+    
 }
 void test_1(){
     int len_l1 = 4, len_l2 = 6;
