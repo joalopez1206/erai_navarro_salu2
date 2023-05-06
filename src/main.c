@@ -6,7 +6,8 @@ int main() {
     //test_1();
     printf("\n-------------------------------------------\n");
     printf("\n----Tests para inversa permutacion---------\n");
-    test_2();
+    test_simple();
+    test_azaroso();
     printf("\n-------------------------------------------\n");
     return 0;
 }
