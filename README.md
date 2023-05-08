@@ -13,7 +13,7 @@ void inversa_permutacion(int* l1, int N, int* out);
 //
 ```
 Para buildear este proyecto se necesitan los siguientes requisitos:
-- CMake (`apt install CMake`)
+- CMake (`apt install cmake`)
 - Make y GCC (`apt install build-essentials`)
 
 Para buildear hay que ejecutar los siguientes pasos:

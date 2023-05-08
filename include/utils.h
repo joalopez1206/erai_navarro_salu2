@@ -1,2 +1,3 @@
 #pragma once
-void print_lst(int *l, int n);
+void print_lst(long *l, long n);
+long *generate_n_random_perm(long n);
