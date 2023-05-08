@@ -3,8 +3,8 @@
 #include "merge_sort.h"
 int main() {
     printf("\n----------Tests para mergesort-------------\n");
-    //test_funcionalidad();
-    //test_maldito();
+    test_funcionalidad();
+    test_maldito();
     printf("\n-------------------------------------------\n");
     printf("\n----Tests para inversa permutacion---------\n");
     test_simple();

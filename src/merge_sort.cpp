@@ -1,8 +1,12 @@
 #include <cstdio>
 #include <cstdlib>
+#include <chrono>
+#include <vector>
 #include "utils.h"
 #include "merge_sort.h"
 
+using namespace std;
+using namespace std::chrono;
 //esto es para hacer un merge desde el indice [i..j] y [j+1..k]
 void merge(long *l, long i, long j, long k) {
     long izq = j-i+1, der = k-(j+1)+1;
@@ -54,26 +58,38 @@ void merge_sort(long *arr, long l, long r) {
 void test_funcionalidad(){
     printf("Tests for mergeSort\n");
     long N=6;
-    long l[] = {3,8,1,4,5,2};
+    long l[] = {2,1,0,5,3,4};
     merge_sort(l, 0, N-1);
     print_lst(l, N);
 }
 
 void test_maldito(){
-    printf("Test para mergesort\n");
-    for(int i = 0; i<30; i++){
+    printf("Test para mergesort aleatorio\n");
+    for(int i = 18; i<28; i++){
         //generamos un arreglo al azar de tamaño 2**i
         long size = 1L<<i;
-        long *array  = generate_n_random_perm(size);
-        merge_sort(array,0 , size-1);
-        for(long j = 0; j<size; j++){
-            if (!array[j]== j){
-                printf("Error! Array val = %d and actual val = %d\n", array[j], j);
-                exit(0);
+        vector<microseconds> times(REP);
+        for(int k = 0; k<REP; k++){
+            long *array  = generate_n_random_perm(size);
+            auto start = high_resolution_clock::now();
+            merge_sort(array,0 , size-1);
+            auto stop = high_resolution_clock::now();
+            for(long j = 0; j<size; j++){
+                if (!array[j]== j){
+                    printf("Error! Array val = %d and actual val = %d\n", array[j], j);
+                    exit(0);
+                }
             }
+            auto duration = duration_cast<microseconds>(stop - start);
+            times[k] = duration;
+            free(array);
         }
-        printf("\rOK for 2^%d",i);
+        microseconds s = microseconds(0);
+        for (auto &&time : times){
+            s = s + time;
+        }
+        microseconds mean = s/REP;
+        printf("OK for 2^%d ---> %d microseconds\n", i, mean);
         fflush(stdout);
-        free(array);
     }
 }
