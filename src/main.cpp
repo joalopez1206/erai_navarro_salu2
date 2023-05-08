@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <cstdio>
 #include "inv_perm.h"
 #include "merge_sort.h"
 int main() {

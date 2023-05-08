@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include "utils.h"
 
 void print_lst(long *l, long n){
@@ -11,7 +11,7 @@ void print_lst(long *l, long n){
 }
 
 long *generate_n_random_perm(long n){
-    long *retval = malloc(n * sizeof(long));
+    long *retval =(long *) malloc(n * sizeof(long));
 
     for(long i = 0; i<n; i++){
         retval[i] = i; 

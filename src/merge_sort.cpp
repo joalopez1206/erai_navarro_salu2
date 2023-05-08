@@ -1,13 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include "utils.h"
 #include "merge_sort.h"
 
 //esto es para hacer un merge desde el indice [i..j] y [j+1..k]
 void merge(long *l, long i, long j, long k) {
     long izq = j-i+1, der = k-(j+1)+1;
-    long *l_izq = malloc(izq*sizeof(long));
-    long *l_der = malloc(der*sizeof(long));
+    long *l_izq =(long *) malloc(izq*sizeof(long));
+    long *l_der =(long *) malloc(der*sizeof(long));
     for(long a = 0; a<izq; a++){
         l_izq[a] = l[i+a];
     }
@@ -61,7 +61,7 @@ void test_funcionalidad(){
 
 void test_maldito(){
     printf("Test para mergesort\n");
-    for(int i = 0; i<20; i++){
+    for(int i = 0; i<30; i++){
         //generamos un arreglo al azar de tamaño 2**i
         long size = 1L<<i;
         long *array  = generate_n_random_perm(size);
@@ -72,7 +72,8 @@ void test_maldito(){
                 exit(0);
             }
         }
-        printf("OK for 2^%d\n",i);
+        printf("\rOK for 2^%d",i);
+        fflush(stdout);
         free(array);
     }
 }

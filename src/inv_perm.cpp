@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include "utils.h"
 #include "inv_perm.h"
 void inv_perm(long *l, long N, long *out){
@@ -12,11 +12,11 @@ void test_simple(){
     printf("Test Simple arreglo 3 1 0 2\n");
     long N = 4;
     long l[] = {3,1,0,2};
-    long *l_1 = malloc(N*sizeof(long));
+    long *l_1 = (long *) malloc(N*sizeof(long));
     inv_perm(l, N, l_1);
     print_lst(l, N);
     print_lst(l_1, N);
-    long *l_idem = malloc(N*sizeof(long));
+    long *l_idem = (long *)malloc(N*sizeof(long));
     for(long i = 0; i<N; i++){
         l_idem[i] = l[l_1[i]];
     }
@@ -29,7 +29,7 @@ void test_azaroso(){
         //generamos un arreglo al azar de tamaño 2**i
         long size = 1L<<i;
         long *array  = generate_n_random_perm(size);
-        long *inverse_array = malloc(size*sizeof(long));
+        long *inverse_array = (long *)malloc(size*sizeof(long));
         inv_perm(array, size, inverse_array);
         for(long j = 0; j<size; j++){
             if (!(array[inverse_array[j]] == j)){
