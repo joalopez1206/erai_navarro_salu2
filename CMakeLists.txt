@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 cmake_minimum_required(VERSION 3.20)
 project(Tarea1log CXX)
-=======
-cmake_minimum_required(VERSION 3.12)
-project(Tarea1log C)
->>>>>>> main
 
 set(CMAKE_CXX_STANDARD 14)
 
