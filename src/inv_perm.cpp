@@ -1,7 +1,11 @@
 #include <cstdio>
 #include <cstdlib>
+#include <chrono>
+#include <vector>
 #include "utils.h"
 #include "inv_perm.h"
+using namespace std;
+using namespace std::chrono;
 void inv_perm(long *l, long N, long *out){
     for(long i = 0; i<N; i++){
         out[l[i]] = i;
@@ -23,21 +27,32 @@ void test_simple(){
     print_lst(l_idem, N);
 }
 
+
+
 void test_azaroso(){
     printf("Test azaroso\n");
-    for(int i = 0; i<30; i++){
+    for(int i = 19; i<28; i++){
         //generamos un arreglo al azar de tamaño 2**i
         long size = 1L<<i;
-        long *array  = generate_n_random_perm(size);
-        long *inverse_array = (long *)malloc(size*sizeof(long));
-        inv_perm(array, size, inverse_array);
-        for(long j = 0; j<size; j++){
-            if (!(array[inverse_array[j]] == j)){
-                printf("Error! Array val = %d and actual val = %d\n", array[inverse_array[i]], i);
-                exit(0);
-            }
+        vector<microseconds> times(REP);
+        for(int j = 0; j<REP; j++){
+            long *array  = generate_n_random_perm(size);
+            long *inverse_array = (long *)malloc(size*sizeof(long));
+            auto start = high_resolution_clock::now();
+            inv_perm(array, size, inverse_array);
+            auto stop = high_resolution_clock::now();
+            check_order(array, inverse_array, size);
+            auto duration = duration_cast<microseconds>(stop - start);
+            times[j] = duration;
+            free(array); free(inverse_array);
         }
-        printf("OK for 2^%d\n",i);
-        free(array); free(inverse_array);
+        microseconds s = microseconds(0);
+        for (auto &&time : times){
+            s = s + time;
+        }
+        microseconds mean = s/REP;
+        
+        printf("OK for 2^%d ---> %d microseconds\n",i, mean);
+        fflush(stdout);
     }
 }

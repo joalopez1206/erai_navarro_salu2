@@ -28,3 +28,12 @@ long *generate_n_random_perm(long n){
     }
     return retval;
 }
+
+void check_order(long *array, long* inverse_array, long size){
+    for(long j = 0; j<size; j++){
+        if (!(array[inverse_array[j]] == j)){
+            printf("Error! Array val = %d and actual val = %d\n", array[inverse_array[j]], j);
+            exit(0);
+        }
+    }
+}
