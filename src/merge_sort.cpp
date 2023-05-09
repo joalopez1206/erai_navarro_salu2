@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <vector>
+#include <queue>
 #include "utils.h"
 #include "merge_sort.h"
 

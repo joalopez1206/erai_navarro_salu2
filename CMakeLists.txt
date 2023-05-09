@@ -7,7 +7,7 @@ set(SOURCE_FILES
     src/utils.cpp
     src/main.cpp
     src/inv_perm.cpp
-    src/merge_sort.cpp)
+    src/merge_sort2.cpp)
 
 add_executable(Tarea1log ${SOURCE_FILES})
 target_include_directories(Tarea1log PUBLIC include)

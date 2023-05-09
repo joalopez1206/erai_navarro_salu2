@@ -37,3 +37,31 @@ void check_order(long *array, long* inverse_array, long size){
         }
     }
 }
+
+Pair *createArrayOfPairs(long *array, long N) {
+  Pair *pairs = (Pair *)malloc(sizeof(Pair)*N);
+  for (long i = 0; i < N; i++) {
+    pairs[i].pi = array[i];
+    pairs[i].i = i+1;
+  }
+  return pairs;
+}
+
+long *generate_n_random_perm_from_one(long n){
+    long *retval =(long *) malloc(n * sizeof(long));
+
+    for(long i = 1; i<=n; i++){
+        retval[i-1] = i; 
+    }
+
+    for (long i = n-1; i >= 0; --i){
+        //generate a random number [0, n-1]
+        long j = rand() % (i+1);
+
+        //swap the last element with element at random index
+        long temp = retval[i];
+        retval[i] = retval[j];
+        retval[j] = temp;
+    }
+    return retval;
+}
