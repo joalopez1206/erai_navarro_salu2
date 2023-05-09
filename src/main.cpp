@@ -7,8 +7,8 @@ int main() {
     test_maldito();
     printf("\n-------------------------------------------\n");
     printf("\n----Tests para inversa permutacion---------\n");
-    //test_simple();
-    //test_azaroso();
+    test_simple();
+    test_azaroso();
     printf("\n-------------------------------------------\n");
     return 0;
 }

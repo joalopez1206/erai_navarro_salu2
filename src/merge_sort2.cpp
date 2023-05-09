@@ -99,7 +99,6 @@ struct Node *mergeD(Pair *pairs, long left,long d, long N) {
 				prev->next = n;
 			}
 			prev = n;
-      delete n;
 		}
 	}
   for (long i = 0; i < d; i++)
@@ -140,7 +139,7 @@ void test_funcionalidad(){
 
 void test_maldito(){
     printf("Test para mergesort aleatorio\n");
-    for(int i = 4; i<20; i++){
+    for(int i = 4; i<19; i++){
         //generamos un arreglo al azar de tamaño 2**i
         long size = 1L<<i;
         vector<microseconds> times(REP);
