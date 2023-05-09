@@ -56,9 +56,9 @@ void merge_sort(long *arr, long l, long r) {
 }
 
 void test_funcionalidad(){
-    printf("Tests for mergeSort\n");
-    long N=6;
-    long l[] = {2,1,0,5,3,4};
+    printf("Tests for mergesort para arreglo [2,1,0,5,3,4,7,6]\n");
+    long N=8;
+    long l[] = {2,1,0,5,3,4,7,6};
     merge_sort(l, 0, N-1);
     print_lst(l, N);
 }
