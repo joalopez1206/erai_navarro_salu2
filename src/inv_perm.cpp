@@ -8,14 +8,14 @@ using namespace std;
 using namespace std::chrono;
 void inv_perm(long *l, long N, long *out){
     for(long i = 0; i<N; i++){
-        out[l[i]-1] = i+1;
+        out[l[i]] = i;
     }
 }
 
 void test_simple(){
     printf("Test Simple arreglo 3 1 0 2\n");
     long N = 4;
-    long l[] = {3,1,4,2};
+    long l[] = {3,0,1,2};
     long *l_1 = (long *) malloc(N*sizeof(long));
     inv_perm(l, N, l_1);
     print_lst(l, N);
